@@ -30,6 +30,7 @@ class PickleSerializer(BaseSerializer):
         self.setup_pickle_version(options)
 
     def setup_pickle_version(self, options):
+        print 'setting up pickle version'
         if "PICKLE_VERSION" in options:
             try:
                 self._pickle_version = int(options["PICKLE_VERSION"])

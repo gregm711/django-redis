@@ -4,7 +4,8 @@ from .base import BaseCompressor
 
 class IdentityCompressor(BaseCompressor):
     def compress(self, value):
-        return value
+        print 'compressing'
+        return value + 'test'
 
     def decompress(self, value):
         return value
