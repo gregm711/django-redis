@@ -309,7 +309,7 @@ class DefaultClient(object):
         """
         Encode the given value.
         """
-
+        print 'encoding yay'
         if isinstance(value, bool) or not isinstance(value, integer_types):
             value = self._serializer.dumps(value)
             value = self._compressor.compress(value)
