@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import absolute_import, unicode_literals
-
+import base64
 # Import the fastest implementation of
 # pickle package. This should be removed
 # when python3 come the unique supported
@@ -37,7 +37,8 @@ class PickleSerializer(BaseSerializer):
                 raise ImproperlyConfigured("PICKLE_VERSION value must be an integer")
 
     def dumps(self, value):
-        return pickle.dumps(value, self._pickle_version)
+        pickled = pickle.dumps(value, pickle.HIGHEST_PROTOCOL, self._pickle_version)
+        return base64.b64encode(pickled)
 
     def loads(self, value):
-        return pickle.loads(force_bytes(value))
+        return  pickle.loads(base64.b64decode(force_bytes(value)))
