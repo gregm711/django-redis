@@ -132,7 +132,8 @@ class RedisCache(BaseCache):
 
     @omit_exception
     def ttl(self, *args, **kwargs):
-        return self.client.ttl(*args, **kwargs)
+        print 'hereeeee'
+s        return self.client.ttl(*args, **kwargs)
 
     @omit_exception
     def persist(self, *args, **kwargs):
